@@ -7,6 +7,21 @@ Litchi,a framework to build website with only python.
 - 就算您是开发纯静态前端页面的开发者，用Litchi，您能有一种新的开发方式，又有什么损失呢？
 - Litchi受到Kivy的深度影响，并使用Flask驱动
 
+# 实例
+```python
+from litchi.app import App
+from litchi.uix import Button
+
+class IndexApp(App):
+    def press(self):
+        self.button.text("Oh,do not press me!!")
+    def build(self):
+        self.button = Button(text="Hello,litchi!", on_pressed=self.press, hold="")
+        return self.button
+
+IndexApp.run(model="server")
+```
+
 # 技术
 jQuery ajax() 方法
 
