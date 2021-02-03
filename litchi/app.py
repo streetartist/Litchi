@@ -1,21 +1,26 @@
 # App code goes there.
 class App:
-    def run(self):
+    def run(self, model):
         elements = self.build()
         html_begin = '''
-            <html>
-                <body>
+<html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    </head>
+    <body>
+        <div id="app">
         '''
         for element in elements:
             html_begin += element.convert()
         html = html_begin + '''
-            </body>
-        </html>
+        </div>
+    </body>
+</html>
         '''
         return html
         
         app = Flask(__name__)
 
-        @app.route('/',methods=['GET','POST']):
+        @app.route('/',methods=['GET','POST'])
         def web():
             pass
