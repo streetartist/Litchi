@@ -5,8 +5,8 @@ import re
 from itertools import dropwhile
 
 def get_function_body(func):
-    print()
-    print("{func.__name__}'s body:".format(func=func))
+    # print()
+    # print("{func.__name__}'s body:".format(func=func))
     source_lines = inspect.getsourcelines(func)[0]
     source_lines = dropwhile(lambda x: x.startswith('@'), source_lines)
     source = ''.join(source_lines)
@@ -19,7 +19,8 @@ def get_function_body(func):
         return '\n'.join([lines[0]] + [line[indentation:] for line in lines[1:]])
 
 def brython(x):
-    return x
+    code = get_function_body(foo())
+    return "<script type="text/javascript">{code}</script>".format(code=code)
 
 '''
 @brython
