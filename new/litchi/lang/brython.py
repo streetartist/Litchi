@@ -1,7 +1,7 @@
 from litchi.lang.base import get_function_body
 
 def brython(x):
-    code = get_function_body(foo())
+    code = get_function_body(x())
     return "<script type="text/python">{code}</script>".format(code=code)
 
 class Brython:
