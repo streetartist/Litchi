@@ -1,9 +1,6 @@
 # Litchi
 Litchi,a framework to build website with only python.
 
-http://www.txt2re.com/index_php3.html?s=a+%3D+1
-http://www.txt2re.com/index3_s_a_1.html
-
 # 介绍
 - Litchi，可以让您在丝毫不写html、js、css的情况下，只用python代码，轻松编写动态网页。
 - 与Illumine结合时，您可以使用Litchi的静态页面生成功能，愉快地编写网页。
