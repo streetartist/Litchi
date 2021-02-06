@@ -12,7 +12,7 @@ class App:
                 <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.5.1.min.js"></script>
                 <link href="https://cdn.bootcdn.net/ajax/libs/pure/2.0.3/pure-min.css" rel="stylesheet">
             </head>
-            <body>
+            <body onload="brython()">
         '''
         for element in elements:
             html_begin += element.convert()
