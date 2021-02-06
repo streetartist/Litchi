@@ -1,7 +1,7 @@
 # Litchi
 Litchi,a framework to build website with only python.
 
-[link](http://txt2re.com/index.php3?s=a%20%3D%201&2
+[link](http://txt2re.com/index.php3?s=%61%20%3D%201&2
 
 # 介绍
 - Litchi，可以让您在丝毫不写html、js、css的情况下，只用python代码，轻松编写动态网页。
