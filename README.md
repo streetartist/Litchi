@@ -9,6 +9,7 @@ Litchi,a framework to build website with only python.
 
 # 更新
 - 增加Brython支持
+- 增加Session支持（测试）
 
 # 实例
 ```python
