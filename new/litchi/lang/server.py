@@ -4,7 +4,7 @@ from litchi.app import session
 import re
 
 def server(x):
-    return x
+    return get_function_body(x())
 
 class Button:
     def __init__(self, function):
