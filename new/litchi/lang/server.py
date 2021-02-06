@@ -1,4 +1,5 @@
 from litchi.lang.base import get_function_body
+import re
 
 def server(x):
     return x
@@ -8,10 +9,5 @@ class Button:
         self.function = function
     def run(self):
         exec(
-            '''
-            @app.route(
-            '''.format(id=self.id, text=self.text)
+            re.search(self.function,"\s\S*\s*=\s*\s\S*")
         )
-            
-    def text(self,change):
-        return change
