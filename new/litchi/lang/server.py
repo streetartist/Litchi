@@ -1,19 +1,15 @@
-from litchi.lang.base import get_function_body
+from litchi.lang.base import get_source
 from litchi.app import session
 
 import re
 
-def server(x):
-    return get_function_body(x())
-
-class Button:
-    def __init__(self, function):
-        self.function = function
-    def convert(self):
-        re.search("\s\S*\s*=\s*\s\S*",self.function)
-        for i in result.groups():
-            re.search("\w*",i)
-            self.function.replace(i,"session["+i+"])
-        exec(
-            self.function
-        )
+def server(func):
+    function = get_source(func)
+    re.search("\s\S*\s*=\s*\s\S*",function)
+    for i in result.groups():
+        re.search("\w*",i)
+        function.replace(i,"session["+i+"])
+    exec(
+        function
+    )
+        
