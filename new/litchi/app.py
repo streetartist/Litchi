@@ -15,7 +15,7 @@ class App:
             </head>
             <body onload="brython()">
         '''
-        # To use Brython,use<script type="text/javascript">You code</script>
+        # To use Brython,use<script type="text/python">You code</script>
         for element in elements:
             html_begin += element.convert()
         html = html_begin + '''
