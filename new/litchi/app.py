@@ -37,6 +37,5 @@ class App:
                     if element.id == id:
                         if event == 'click':
                             return jsonify(element.on_pressed())
-                # return jsonify('opsssss')
         
             return app
