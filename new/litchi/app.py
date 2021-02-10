@@ -22,20 +22,21 @@ class App:
             </body>
         </html>
         '''
-        #return html
-        
-        app = Flask(__name__)
-
-        @app.route('/',methods=['GET','POST'])
-        def web():
+        if model=="static":
             return html
+        else:
+            app = Flask(__name__)
 
-        @app.route('/ajax/<id>/<event>', methods=['POST','GET'])
-        def ajax(id, event):
-            for element in elements:
-                if element.id == id:
-                    if event == 'click':
-                        return jsonify(element.on_pressed())
-            # return jsonify('opsssss')
+            @app.route('/',methods=['GET','POST'])
+            def web():
+                return html
+
+            @app.route('/ajax/<id>/<event>', methods=['POST','GET'])
+            def ajax(id, event):
+                for element in elements:
+                    if element.id == id:
+                        if event == 'click':
+                            return jsonify(element.on_pressed())
+                # return jsonify('opsssss')
         
-        return app
+            return app
