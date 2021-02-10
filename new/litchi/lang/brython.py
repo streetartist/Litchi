@@ -1,8 +1,8 @@
-from litchi.lang.base import get_function_body
+from litchi.lang.base import get_source
 
-def brython(x):
-    code = get_function_body(x())
-    return "<script type="text/python">{code}</script>".format(code=code)
+def brython(func):
+    code = get_source(func)
+    return '''<script type="text/python">{code}</script>'''.format(code=code)
 
 class Brython:
     def __init__(self, function):
