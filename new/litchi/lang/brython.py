@@ -2,7 +2,7 @@ from litchi.lang.base import get_source
 
 def brython(func):
     code = get_source(func)
-    return '''<script type="text/python">{code}</script>'''.format(code=code)
+    return code
 
 class Brython:
     def __init__(self, function):
