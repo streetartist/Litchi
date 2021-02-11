@@ -5,24 +5,24 @@ class App:
     def run(self, model):
         elements = self.build()
         html_begin = '''
-        <!DOCTYPE HTML>
-        <html>
-            <head>
-                <meta name="viewport" content="width=device-width, initial-scale=1">
-                <script type="text/javascript"
-                    src="https://cdn.jsdelivr.net/npm/brython@3.9.1/brython.min.js">
-                </script>
-                <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.5.1.min.js"></script>
-                <link href="https://cdn.bootcdn.net/ajax/libs/pure/2.0.3/pure-min.css" rel="stylesheet">
-            </head>
-            <body onload="brython()">
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script type="text/javascript"
+            src="https://cdn.jsdelivr.net/npm/brython@3.9.1/brython.min.js">
+        </script>
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.5.1.min.js"></script>
+        <link href="https://cdn.bootcdn.net/ajax/libs/pure/2.0.3/pure-min.css" rel="stylesheet">
+     </head>
+     <body onload="brython()">
         '''
         # To use Brython,use<script type="text/python">You code</script>
         for element in elements:
             html_begin += element.convert()
         html = html_begin + '''
-            </body>
-        </html>
+    </body>
+</html>
         '''
         if model=="static":
             return html
