@@ -1,11 +1,11 @@
 class Table:
     def __init__(self, table, on_pressed, hold, id):
-        self.table = table
+        self.table = table # [("",""),(("",""),("",""))]
         self.id = id
         self.on_pressed = on_pressed
     def convert(self):
         return '''
-        <table class="pure-table">
+        <table class="pure-table" id="{id}">
             <thead>
                 <tr>
                     <th>#</th>
