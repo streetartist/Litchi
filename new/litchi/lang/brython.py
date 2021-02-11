@@ -10,7 +10,7 @@ class Brython:
 
     def convert(self):
         return '''
-        <script type="text/python">
-            {code}
-        </script>
+<script type="text/python">
+    {code}
+</script>
         '''.format(code=self.function)
