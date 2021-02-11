@@ -9,7 +9,9 @@ class App:
         <html>
             <head>
                 <meta name="viewport" content="width=device-width, initial-scale=1">
-                <script type="text/javascript" src="https://cdn.bootcdn.net/ajax/libs/brython/3.9.1/brython.min.js"></script>
+                <script type="text/javascript"
+                    src="https://cdn.jsdelivr.net/npm/brython@3.9.1/brython.min.js">
+                </script>
                 <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.5.1.min.js"></script>
                 <link href="https://cdn.bootcdn.net/ajax/libs/pure/2.0.3/pure-min.css" rel="stylesheet">
             </head>
