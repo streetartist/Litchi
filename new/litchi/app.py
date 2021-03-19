@@ -1,5 +1,5 @@
 # App code goes there.
-from flask import Flask, jsonify
+from flask import Flask, jsonify, session
 
 class App:
     def run(self, model):
