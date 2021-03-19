@@ -12,7 +12,7 @@ def server(func):
     
     @app()
     def main():
-        
+        pass
     exec(
         function
     )
