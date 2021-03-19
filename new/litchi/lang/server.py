@@ -1,5 +1,5 @@
 from litchi.lang.base import get_source
-from litchi.app import session
+from litchi.app import session, app
 
 import re
 
@@ -9,6 +9,10 @@ def server(func):
     for i in result.groups():
         re.search("\w*",i)
         function.replace(i,"session["+i+"])
+    
+    @app()
+    def main():
+        
     exec(
         function
     )
