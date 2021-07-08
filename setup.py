@@ -5,8 +5,8 @@ INSTALL_PACKAGES = open(path.join(DIR, 'requirements.txt')).read().splitlines()
 with open(path.join(DIR, 'README.md')) as f:
  README = f.read()
 setup(
- name='litchi',
- packages=['litchi_web'],
+ name='litchi_web',
+ packages=['litchi'],
  description="Build website with only Python",
  long_description=README,
  long_description_content_type='text/markdown',
