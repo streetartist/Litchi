@@ -6,9 +6,9 @@ name: Upload Python Package Litchi
 
 on:
   # 当master分支有push时，触发action
-  #push: 
-  #  branches:
-  #    - master
+  push: 
+    branches:
+      - master
   
   # 当一个pr被合并到master时，触发action
   pull_request:
