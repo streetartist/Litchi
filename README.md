@@ -1,4 +1,5 @@
 # Litchi
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/streetartist/Litchi/HEAD)
 Litchi,a framework to build website with only python.
 
 # 介绍
