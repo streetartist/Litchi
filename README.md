@@ -31,10 +31,9 @@ class IndexApp(App):
     def press(self):
         return "Oh,do not press me!!"
     def build(self):
-        self.button = Button(text="Hello,litchi!", on_pressed=self.press, hold="", id = "Button1")
-        return [self.button,]
+        self.button = Button(text="Hello,litchi!", on_pressed=self.press, id = "Button1")
     
-IndexApp().run(model='server').run()
+IndexApp().run(model='server')
 ```
 
 # 技术
