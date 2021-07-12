@@ -10,7 +10,7 @@ Litchi,a framework to build website with only python.
 
 # 安装
 现在您可以通过
-```bash
+```shell
 pip install litchi-web
 ```
 来安装
