@@ -3,7 +3,8 @@ from flask import Flask, jsonify, session
 
 def del_waste(self, wastes):
     waste = ['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__',
-'__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', 'build', 'run']
+'__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', \ 
+        'build', 'run', 'generate',]
     
     production = []
 
@@ -16,7 +17,7 @@ def del_waste(self, wastes):
     return production
 
 class App:
-    def run(self, model, *args):
+    def generate(self, model):
         elements = self.build() if self.build() != None else del_waste(self, dir(self))
         # 如有返回，使用返回顺序
         # print(elements)
@@ -44,17 +45,21 @@ class App:
         if model== "static":
             return html
         else:
-            app = Flask(__name__)
+            self.app = Flask(__name__)
 
-            @app.route('/',methods=['GET','POST'])
+            @self.app.route('/',methods=['GET','POST'])
             def web():
                 return html
 
-            @app.route('/ajax/<id>/<event>', methods=['POST','GET'])
+            @self.app.route('/ajax/<id>/<event>', methods=['POST','GET'])
             def ajax(id, event):
                 for element in elements:
                     if element.id == id:
                         if event == 'click':
                             return jsonify(element.on_pressed())
         
-            return app.run(*args)
+            return self.app
+
+    def run(self, model, *args):
+        self.generate(mode).run(*args)
+
