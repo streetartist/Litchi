@@ -8,7 +8,12 @@ Litchi,a framework to build website with only python.
 - 就算您是开发纯静态前端页面的开发者，用Litchi，您能有一种新的开发方式，又有什么损失呢？
 - Litchi受到Kivy的深度影响，并使用Flask驱动
 
-正在上传到PYPI
+# 安装
+现在您可以通过
+```bash
+pip install litchi-web
+```
+来安装
 
 # 更新
 - 增加Brython支持
