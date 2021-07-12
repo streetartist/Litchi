@@ -6,7 +6,7 @@ with open(path.join(DIR, 'README.md')) as f:
  README = f.read()
 setup(
  name='litchi_web',
- packages=['litchi'],
+ packages=['litchi', "litchi/uix", "litchi/lang"],
  description="Build website with only Python",
  long_description=README,
  long_description_content_type='text/markdown',
