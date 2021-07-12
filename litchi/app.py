@@ -11,18 +11,15 @@ def del_waste(self, wastes):
         j = getattr(self, i)
 
         if i not in waste and hasattr(j, "litchi") == True:
-            production.append(j)
+            production.insert(0, j)
 
     return production
 
 class App:
     def run(self, model, *args):
-        # elements = self.build()
-        self.build()
-
-        elements = del_waste(self, dir(self))
-
-        print(elements)
+        elements = self.build() if self.build() != None else del_waste(self, dir(self))
+        # 如有返回，使用返回顺序
+        # print(elements)
 
         html_begin = '''
 <!DOCTYPE HTML>
