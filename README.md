@@ -1,5 +1,6 @@
 # Litchi
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/streetartist/Litchi/HEAD)
+
 Litchi,a framework to build website with only python.
 
 # 介绍
@@ -14,6 +15,8 @@ Litchi,a framework to build website with only python.
 pip install litchi-web
 ```
 来安装
+
+[Pypi数据](https://pypistats.org/packages/litchi-web)
 
 # 更新
 - 增加Brython支持
