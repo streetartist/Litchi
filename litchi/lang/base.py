@@ -10,3 +10,7 @@ def get_source(func):
         else:
             code+=line
     return code
+
+def source(func):
+    code = get_source(func)
+    return code
