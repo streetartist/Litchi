@@ -11,7 +11,7 @@ setup(
  long_description=README,
  long_description_content_type='text/markdown',
  install_requires=INSTALL_PACKAGES,
- version='0.2.5.20218101',
+ version='0.2.5.2021810_1',
  url='http://github.com/streetartist/Litchi',
  author='Streetartist',
  author_email='15252635839@163.com',
