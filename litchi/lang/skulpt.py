@@ -2,13 +2,14 @@ class Brython:
     def __init__(self, function):
         self.function = function
         self.litchi = None
+        self.require = '''
+<script src="https://cdn.jsdelivr.net/npm/skulpt/dist/skulpt.min.js" type="text/javascript"></script>    
+<script src="https://cdn.jsdelivr.net/npm/skulpt/dist/skulpt-stdlib.js" type="text/javascript"></script>
+        '''
 
     def convert(self):
         return '''
-    <script src="https://cdn.jsdelivr.net/npm/skulpt/dist/skulpt.min.js" type="text/javascript"></script>    
-    <script src="https://cdn.jsdelivr.net/npm/skulpt/dist/skulpt-stdlib.js" type="text/javascript"></script>
-
-    <script type="text/javascript">
+<script type="text/javascript">
 
         function outf(text) {{
             var mypre = document.getElementById("output");  //
