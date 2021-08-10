@@ -1,4 +1,4 @@
-class Brython:
+class Skulpt:
     def __init__(self, function):
         self.function = function
         self.litchi = None
