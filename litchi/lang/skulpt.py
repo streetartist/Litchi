@@ -11,7 +11,6 @@ class Skulpt:
     def convert(self):
         return '''
 <script type="text/javascript">
-PyGameZero.setContainer(document.getElementById('stage'))
 
         function outf(text) {{
             var mypre = document.getElementById("output");  //
@@ -32,7 +31,8 @@ PyGameZero.setContainer(document.getElementById('stage'))
             Sk.configure({{ output: outf, read: builtinRead, __future__: Sk.python3, 
   read: PyGameZero.usePyGameZero(builtinRead),
 });
- 
+
+PyGameZero.setContainer(document.getElementById('stage'))
 PyGameZero.reset();
 
             (Sk.TurtleGraphics || (Sk.TurtleGraphics = {{}})).target = 'mycanvas';
