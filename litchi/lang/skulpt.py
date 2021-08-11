@@ -29,7 +29,9 @@ PyGameZero.setContainer(document.getElementById('stage'))
             var mypre = document.getElementById("output");   //获取输出框
             mypre.innerHTML = '';
             Sk.pre = "output";
-            Sk.configure({{ output: outf, read: builtinRead, __future__: Sk.python3 }});
+            Sk.configure({{ output: outf, read: builtinRead, __future__: Sk.python3, 
+  read: PyGameZero.usePyGameZero(builtinRead),
+});
  
 PyGameZero.reset();
 
