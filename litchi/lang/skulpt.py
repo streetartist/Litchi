@@ -30,7 +30,7 @@ class Skulpt:
             Sk.pre = "output";
             Sk.configure({{ output: outf, read: builtinRead, __future__: Sk.python3, 
   read: PyGameZero.usePyGameZero(builtinRead),
-});
+}});
 
 PyGameZero.setContainer(document.getElementById('stage'))
 PyGameZero.reset();
