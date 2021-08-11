@@ -5,11 +5,13 @@ class Skulpt:
         self.require = '''
 <script src="https://cdn.jsdelivr.net/npm/skulpt/dist/skulpt.min.js" type="text/javascript"></script>    
 <script src="https://cdn.jsdelivr.net/npm/skulpt/dist/skulpt-stdlib.js" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/npm/skulpt-pygame-zero/dist/main.js"></script>
         '''
 
     def convert(self):
         return '''
 <script type="text/javascript">
+PyGameZero.setContainer(document.getElementById('stage'))
 
         function outf(text) {{
             var mypre = document.getElementById("output");  //
@@ -29,6 +31,8 @@ class Skulpt:
             Sk.pre = "output";
             Sk.configure({{ output: outf, read: builtinRead, __future__: Sk.python3 }});
  
+PyGameZero.reset();
+
             (Sk.TurtleGraphics || (Sk.TurtleGraphics = {{}})).target = 'mycanvas';
             var myPromise = Sk.misceval.asyncToPromise(function () {{
                 return Sk.importMainWithBody("<stdin>", false, prog, true);
@@ -49,6 +53,7 @@ runit();
     <pre id="output"></pre>
     <!-- 画图输出部分 -->
     <div id="mycanvas"></div>
+<div id="stage"></div>
 </body>
 </html>
         '''.format(code=self.function)
