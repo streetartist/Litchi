@@ -50,7 +50,7 @@ class App:
         '''
         if model== "static":
             return html
-        else if model="service":
+        elif model="server":
             self.app = Flask(__name__)
 
             @self.app.route('/',methods=['GET','POST'])
@@ -66,6 +66,6 @@ class App:
         
             return self.app
 
-    def run(self, *args):
-        self.generate("service")
+    def run(self, **args):
+        self.generate("server").run(**args)
 
