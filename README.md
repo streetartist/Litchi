@@ -1,6 +1,6 @@
-# Litchi 0.3.1 - Minimal Modern Python Web Framework
+# Litchi 0.3.1 - Pythonic Web Framework
 
-Litchi 0.3.1 是一个最小但强大的 Python Web 框架，结合了 Litchi 1.0 和 2.0 的优点，提供了更简洁、更现代的开发体验。
+Litchi 0.3.1 是一个强大的 Python Web 框架，旨在为开发者提供含Python量奇高的Web开发体验
 
 ## 特性
 
@@ -18,59 +18,125 @@ Litchi 0.3.1 是一个最小但强大的 Python Web 框架，结合了 Litchi 1.
 ### 安装
 
 ```bash
-cd litchi3
-pip install -r requirements.txt
+pip install litchi-web
 ```
 
 ### Hello World
 
 ```python
-from litchi3 import App
-from litchi3.components import Button, Title, Card, Space
+"""
+Hello World example for Litchi 0.3.1
+"""
+from litchi import App
+from litchi.components import Button, Title, Card, Space, Alert, Row, Col
 
-class MyApp(App):
+
+class HelloWorldApp(App):
+    """Simple Hello World application demonstrating Litchi 0.3.1"""
+    
     def __init__(self):
-        super().__init__(name="My App", debug=True)
-        self.state.set('count', 0)
+        super().__init__(name="Litchi 0.3.1 Hello World", debug=True)
+        
+        # Initialize some state
+        self.state.set('click_count', 0)
+        self.state.set('message', 'Welcome to Litchi 0.3.1!')
+        self.state.set('show_alert', False)
     
     def on_click(self):
-        count = self.state.get('count', 0)
+        """Handle button click"""
+        count = self.state.get('click_count', 0)
         count += 1
-        self.state.set('count', count)
+        self.state.set('click_count', count)
         
         return self.notify(
-            "Success",
-            f"Button clicked {count} times!",
+            "Button Clicked",
+            f"You've clicked the button {count} times!",
             type="success"
         )
     
+    def on_reset(self):
+        """Reset counter"""
+        self.state.set('click_count', 0)
+        return self.success("Counter reset successfully!")
+    
+    def on_show_alert(self):
+        """Show alert"""
+        self.state.set('show_alert', True)
+        return self.data({
+            'notification': {
+                'title': 'Alert Shown',
+                'message': 'This is a test alert from Litchi 0.3.1!',
+                'type': 'info'
+            }
+        })
+    
     def build(self):
+        """Build the UI"""
         return [
+            # Header
             Title("Welcome to Litchi 0.3.1", level=1),
+            
+            # Main content in a card
             Card(
-                Title("Hello World", level=3),
-                Space(
-                    Button("Click Me", type="primary", on_click=self.on_click),
-                    Button("Reset", type="default"),
-                    size="large"
+                Title("Hello World Demo", level=3),
+                
+                # Alert section
+                Alert(
+                    title="Welcome!",
+                    description="This is a demonstration of Litchi 0.3.1 - a minimal but powerful Python web framework.",
+                    type="info",
+                    show_icon=True,
+                    closable=True
                 ),
-                header="Demo",
+                
+                # Button section
+                Space(size="large").child(
+                    Button(
+                        f"Click Me ({self.state.get('click_count', 0)})",
+                        type="primary",
+                        size="default",
+                        on_click=self.on_click
+                    ),
+                    Button("Reset", type="default", size="default", on_click=self.on_reset),
+                    Button("Show Alert", type="success", size="default", on_click=self.on_show_alert)
+                ),
+                
+                # Grid layout demo
+                Row(gutter=20).child(
+                    Col(span=8).child(
+                        Card(
+                            Title("Feature 1", level=4),
+                            "Litchi 0.3.1 provides a clean, minimal API for building web applications.",
+                            shadow="hover"
+                        )
+                    ),
+                    Col(span=8).child(
+                        Card(
+                            Title("Feature 2", level=4),
+                            "Built with Vue.js 3 and Element Plus for modern UI components.",
+                            shadow="hover"
+                        )
+                    ),
+                    Col(span=8).child(
+                        Card(
+                            Title("Feature 3", level=4),
+                            "State management and event handling made simple.",
+                            shadow="hover"
+                        )
+                    )
+                ),
+                
+                header="Litchi 0.3.1 Demo",
                 shadow="hover"
             )
         ]
 
+
 if __name__ == '__main__':
-    app = MyApp()
+    app = HelloWorldApp()
     app.run(port=5000)
+
 ```
-
-### 运行示例
-
-```bash
-python litchi3/examples/hello_world.py
-```
-
-然后在浏览器中访问 http://localhost:5000
 
 ## 核心概念
 
@@ -79,7 +145,7 @@ python litchi3/examples/hello_world.py
 应用是 Litchi 0.3.1 的核心，负责管理组件、状态和事件：
 
 ```python
-from litchi3 import App
+from litchi import App
 
 class MyApp(App):
     def build(self):
@@ -94,7 +160,7 @@ class MyApp(App):
 Litchi 0.3.1 提供了丰富的 UI 组件：
 
 ```python
-from litchi3.components import Button, Card, Title, Alert
+from litchi.components import Button, Card, Title, Alert
 
 # 按钮
 Button("Click Me", type="primary", on_click=self.handle_click)
@@ -218,7 +284,7 @@ return self.update_state("count", 1)
 ## 项目结构
 
 ```
-litchi3/
+litchi/
 ├── __init__.py              # 主入口
 ├── requirements.txt          # 依赖列表
 ├── README.md               # 项目文档
@@ -240,24 +306,12 @@ litchi3/
     └── hello_world.py     # Hello World 示例
 ```
 
-## 与 Litchi 1.0/2.0 的对比
-
-| 特性 | Litchi 1.0 | Litchi 2.0 | Litchi 0.3.1 |
-|------|-------------|-------------|-------------|
-| 架构 | 单文件模块 | 分层架构 | 最小架构 |
-| API | 基础 | 完整 | 简洁 |
-| 组件 | 基础 | 丰富 | 精选 |
-| 状态管理 | 无 | 完整 | 内置 |
-| 事件处理 | 基础 | 智能 | 简化 |
-| 学习曲线 | 简单 | 中等 | 简单 |
-| 性能 | 好 | 更好 | 最优 |
-
 ## 开发指南
 
 ### 自定义组件
 
 ```python
-from litchi3.core.component import ElementComponent
+from litchi.core.component import ElementComponent
 
 class MyComponent(ElementComponent):
     def __init__(self, **kwargs):
@@ -312,20 +366,13 @@ def get_users():
 
 ## 许可证
 
-MIT License
+GPL v3
 
 ## 更新日志
 
-### v3.0.0 (2024-11-22)
+### v0.3.1 (2025-11-22)
 
-- 🎉 初始版本发布
-- ✨ 最小但强大的 API 设计
-- 🎨 Vue.js 3 + Element Plus 集成
-- 🔄 内置状态管理
-- ⚡ 智能事件处理
-- 🧩 丰富的 UI 组件库
-- 🔗 链式 API 支持
-- 📱 响应式设计
+- 🎉 时隔多年，重新开工！
 
 ---
 
