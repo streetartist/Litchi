@@ -1,3 +1,15 @@
-peewee
-flask
-javascripthon
+# Litchi 0.3.1 Requirements
+
+# Core web framework
+Flask>=2.3.0
+Werkzeug>=2.3.0
+
+# Type hints (optional but recommended)
+typing-extensions>=4.5.0
+
+# Development dependencies (uncomment for development)
+# pytest>=7.0.0
+# pytest-flask>=1.2.0
+# black>=23.0.0
+# flake8>=6.0.0
+# mypy>=1.0.0

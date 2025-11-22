@@ -6,12 +6,16 @@ with open(path.join(DIR, 'README.md')) as f:
  README = f.read()
 setup(
  name='litchi_web',
- packages=['litchi', "litchi/uix", "litchi/lang"],
+ packages=['litchi', "litchi/uix", "litchi/lang", "litchi/server"],
+ package_data={
+     'litchi': ['templates/*.html', 'static/*.js', 'static/*.css']
+ },
+ include_package_data=True,
  description="Build website with only Python",
  long_description=README,
  long_description_content_type='text/markdown',
  install_requires=INSTALL_PACKAGES,
- version='0.2.7.2021811_1',
+ version='0.3.1.2025112201',
  url='http://github.com/streetartist/Litchi',
  author='Streetartist',
  author_email='15252635839@163.com',
@@ -21,5 +25,5 @@ setup(
  'pytest-cov',
  'pytest-sugar'
  ],
- python_requires='>=3'
+ python_requires='>=3.7'
 )
