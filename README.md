@@ -137,6 +137,7 @@ if __name__ == '__main__':
     app.run(port=5000)
 
 ```
+<img width="2851" height="1059" alt="image" src="https://github.com/user-attachments/assets/576501a2-5610-41b2-b2c8-5312f804b6e1" />
 
 ## 核心概念
 
