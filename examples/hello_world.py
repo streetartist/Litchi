@@ -1,15 +1,13 @@
 """
 Hello World example for Litchi 0.3.1
 """
-
 import sys
-import os
 
 # Add the parent directory to the path so we can import litchi3
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
+sys.path.insert(0, r"D:\Litchi")
 
-from litchi import App
-from litchi.components import Button, Title, Card, Space, Alert, Row, Col
+from Litchi import App
+from Litchi.components import Button, Title, Card, Space, Alert, Row, Col
 
 
 class HelloWorldApp(App):
