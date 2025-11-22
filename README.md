@@ -2,6 +2,14 @@
 
 Litchi 0.3.1 是一个强大的 Python Web 框架，旨在为开发者提供含Python量奇高的Web开发体验
 
+## Doing & To do
+1. (Doing)无缝融合Brython与Transcript，实现Python对Vue.js的无感操作，实现前端纯Python化。
+2. (Doing)增加基于Flask的session变量的存储机制。
+3. (Doing)进一步实现无感的前后端数据交互。
+4. (Doing)完全使用Litchi库编写一个功能完备的博客网站。
+5. (To do)以一种优雅的方式支持用户自己添加html,js,css文件，而不打破和谐。
+6. (To do)不仅仅限于Vue.js+Element Plus，增加更多前端框架选择
+
 ## 特性
 
 - 🍒 **简洁且强大** - 简洁的 API，强大的功能
